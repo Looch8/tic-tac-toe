@@ -10,14 +10,14 @@ const Gameboard = (function () {
 console.log(Gameboard);
 
 // Factorie function (Create player objects)
-function Player(playerName) {
+function createPlayer(player) {
 	return {
-		playerName: playerName,
+		player: player,
 	};
 }
 
-let playerOne = Player("player one");
-let playerTwo = Player("player Two");
+let playerOne = createPlayer("player one");
+let playerTwo = createPlayer("player Two");
 
 console.log(playerOne, playerTwo);
 
