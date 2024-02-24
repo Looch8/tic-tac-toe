@@ -1,28 +1,22 @@
 // IIFE Module for gameboard
-const Gameboard = (function () {
+const gameboard = (function () {
 	const rows = 3;
 	const columns = 3;
-	const board = [];
+	const board = ["", "", "", "", "", "", "", "", ""];
 
-	// Create 2-d array
-	for (let i = 0; i < rows; i++) {
-		board[i] = [];
-		for (let j = 0; j < columns; j++) {
-			board[i].push(Cell());
-		}
-	}
-	return board;
-})();
+	// render the board when start is clicked
 
-// Cell represents one square on the board
-function Cell() {
-	let value = 0;
-	return {
-		value,
+	const render = () => {
+		let boardHTML = "";
+		gameboard.forEach((square, index) => {
+			boardHTML += `<div class="square" id=square-${index}">${square}</div>`;
+		});
 	};
-}
-
-console.log(Gameboard);
+	document.querySelector(".gameboard").innerHTML = boardHTML;
+	return {
+		render,
+	};
+})();
 
 // Factorie function (Create player objects)
 function createPlayer(player) {
@@ -37,7 +31,28 @@ let playerTwo = createPlayer("player Two");
 console.log(playerOne, playerTwo);
 
 // Control flow of game
-const Game = {};
+const Game = () => {
+
+	let players = [];
+	let currentPlayerIndex
+	let gameOver
+
+	const start = () => {
+		players = [createPlayer(document.querySelector("#player1").value, 'O'), createPlayer(document.querySelector("#player2").value, 'X')]
+		currentPlayerIndex = 0;
+		gameOver = false;
+		gameboard.render();
+	}
+	return {
+		start,
+	}
+}();
 
 // Module
 // Display Controller
+
+// Start game
+const startButton = document.querySelector("#start-button");
+startButton.addEventListener("click", () => {
+	//Game.start();
+});
