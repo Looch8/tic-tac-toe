@@ -7,17 +7,16 @@ const Gameboard = (function () {
 	];
 	// Return an object with methods to interact with the board
 
+	// HELPFUL COMMENT - This way Gameboard contains an object, that at the moment is only {board}, but later on if you need any methods or anything else, you can put them in there alongside the board
 	return {
-		getBoard: function () {
-			return board;
-		},
+		board,
 	};
 })();
 
 // board array
-const gameboardArray = Gameboard.getBoard();
+const gameboardArray = Gameboard.board;
 
-// TODO - turn this into a function where I can just select spot on the board (potentially)
+// TODO - turn this into a function where I can just select spot on the 2d array
 // Changing elements in 2d array
 gameboardArray[1][0] = "o";
 gameboardArray[2][0] = "x";
