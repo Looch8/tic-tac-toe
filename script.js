@@ -1,13 +1,27 @@
 // IIFE Module for gameboard
 const Gameboard = (function () {
-	const gameboard = [
-		["x", "x", "x"],
-		["x", "x", "x"],
-		["x", "x", "x"],
+	const board = [
+		["", "", ""],
+		["", "", ""],
+		["", "", ""],
 	];
-	return gameboard;
+	// Return an object with methods to interact with the board
+
+	return {
+		getBoard: function () {
+			return board;
+		},
+	};
 })();
-console.log(Gameboard);
+
+// board array
+const gameboardArray = Gameboard.getBoard();
+
+// TODO - turn this into a function where I can just select spot on the board (potentially)
+// Changing elements in 2d array
+gameboardArray[1][0] = "o";
+gameboardArray[2][0] = "x";
+console.log(gameboardArray);
 
 // Factorie function (Create player objects)
 function createPlayer(player) {
