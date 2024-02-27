@@ -14,6 +14,15 @@ const Gameboard = (function () {
 	};
 })();
 
+// For example, the first winning condition would be `[[0,0], [0,1], [0,2]]`. I'm an array for each element access.
+const winCondition = [
+	Gameboard.board[0][0],
+	Gameboard.board[0][1],
+	Gameboard.board[0][2],
+];
+
+console.log(winCondition);
+
 // Factorie function (Create player objects)
 function createPlayer(player) {
 	return {
@@ -33,6 +42,11 @@ const Game = function () {
 
 	// convert 2d array to 1d array
 	const convertedArray = [].concat(...Gameboard.board);
+
+	// Another way for win conditions
+	// [[0,0], [0,1], [0,2]].every(([subArrayIndex, itemIndex]) => {
+	// 	Board[subArrayIndex][itemIndex]
+	// 	})
 
 	// Tic Tac Toe winning conditions
 	const winningConditions = [
