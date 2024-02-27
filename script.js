@@ -1,5 +1,6 @@
 // IIFE Module for gameboard
 const Gameboard = (function () {
+	// Might convert this to a 1d array - still deciding
 	const board = [
 		["b", "q", "l"],
 		["n", "o", "t"],
@@ -12,16 +13,6 @@ const Gameboard = (function () {
 		board,
 	};
 })();
-
-// board array
-const gameboardArray = Gameboard.board;
-
-// TODO - turn this into a function where I can just select spot on the 2d array
-// Changing elements in 2d array
-gameboardArray[1][0] = "o";
-gameboardArray[2][0] = "x";
-console.log(gameboardArray);
-console.log(gameboardArray[0]);
 
 // Factorie function (Create player objects)
 function createPlayer(player) {
@@ -37,13 +28,34 @@ console.log(playerOne, playerTwo);
 
 // Control flow of game
 const Game = function () {
-	// Winning conditions - use an array
-	const winningConditions = [];
+	// board array
+	const gameboardArray = Gameboard.board;
 
-	// Then use gameboardArray to compare to winningConditions array
-	// if (gameboardArray[1][0] === "c") console.log("You win");
+	// convert 2d array to 1d array
+	const convertedArray = [].concat(...Gameboard.board);
+
+	// Tic Tac Toe winning conditions
+	const winningConditions = [
+		[0, 1, 2],
+		[3, 4, 5],
+		[6, 7, 8],
+		[0, 3, 6],
+		[1, 4, 7],
+		[2, 5, 8],
+		[0, 4, 8],
+		[2, 4, 6],
+	];
+	return {
+		gameboardArray,
+		convertedArray,
+		winningConditions,
+	};
 };
-Game();
+const game = Game(); // Call the function to get the returned object. Have to stored the Game object in a variable if I want to use it.
+
+// This works
+const test = game.convertedArray;
+console.log(test);
 
 // Module
 // Display Controller
