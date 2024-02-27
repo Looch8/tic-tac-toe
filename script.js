@@ -51,10 +51,9 @@ const Game = function () {
 		winningConditions,
 	};
 };
-const game = Game(); // Call the function to get the returned object. Have to stored the Game object in a variable if I want to use it.
 
 // This works
-const test = game.convertedArray;
+const test = Game().convertedArray;
 console.log(test);
 
 // Module
