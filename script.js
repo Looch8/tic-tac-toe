@@ -1,9 +1,9 @@
 // IIFE Module for gameboard
 const Gameboard = (function () {
 	const board = [
-		["", "", ""],
-		["", "", ""],
-		["", "", ""],
+		["b", "q", "l"],
+		["n", "o", "t"],
+		["m", "a", "k"],
 	];
 	// Return an object with methods to interact with the board
 
@@ -21,6 +21,7 @@ const gameboardArray = Gameboard.board;
 gameboardArray[1][0] = "o";
 gameboardArray[2][0] = "x";
 console.log(gameboardArray);
+console.log(gameboardArray[0]);
 
 // Factorie function (Create player objects)
 function createPlayer(player) {
@@ -35,7 +36,14 @@ let playerTwo = createPlayer("player Two");
 console.log(playerOne, playerTwo);
 
 // Control flow of game
-const Game = {};
+const Game = function () {
+	// Winning conditions - use an array
+	const winningConditions = [];
+
+	// Then use gameboardArray to compare to winningConditions array
+	// if (gameboardArray[1][0] === "c") console.log("You win");
+};
+Game();
 
 // Module
 // Display Controller
